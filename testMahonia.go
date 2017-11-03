@@ -16,15 +16,12 @@ func main() {
 	defer res.Body.Close()
 
 	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		// handle error
-	}
+	checkerr(err)
 
 	enc := mahonia.NewDecoder("gbk")
 	content := string(body)
 	content = enc.ConvertString(content)
-	//fmt.Println(content)
-
+	fmt.Println(content)
 }
 
 func queryByXquery(url string) {
