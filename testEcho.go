@@ -45,6 +45,7 @@ func users(c echo2.Context) error  {
 		return err
 	}
 	return c.JSON(http.StatusOK, u)
+	//return c.XML(http.StatusOK, u)
 }
 
 func save(c echo2.Context) error {
