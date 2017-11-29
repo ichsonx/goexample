@@ -7,6 +7,7 @@ import (
 	"io"
 	"time"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/labstack/echo/middleware"
 )
 
 type User struct {
@@ -16,6 +17,11 @@ type User struct {
 
 func main() {
 	e := echo2.New()
+
+	// Middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
 	e.GET("/", func(context echo2.Context) error {
 		return context.String(http.StatusOK, "hello echo")
 	})
@@ -31,6 +37,17 @@ func main() {
 		使用绑定函数，使得请求中的json、xml、form表单数据、query中的参数，自动绑定到已定义好的数据结构中
 	*/
 	e.POST("/users", users)
+
+	// Login route
+	e.POST("/login", login)
+
+	// Unauthenticated route
+	e.GET("/", accessible)
+
+	// Restricted group
+	r := e.Group("/restricted")
+	r.Use(middleware.JWT([]byte("secret")))
+	r.GET("", restricted)
 
 
 	e.Logger.Fatal(e.Start(":1323"))
@@ -48,7 +65,8 @@ func login(c echo2.Context) error {
 		claims := token.Claims.(jwt.MapClaims)
 		claims["name"] = "Jon Snow"
 		claims["admin"] = true
-		claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
+		claims["auth"] = "sonx"
+		claims["exp"] = time.Now().Add(time.Second * 30).Unix()
 
 		// Generate encoded token and send it as response.
 		t, err := token.SignedString([]byte("secret"))
@@ -60,20 +78,19 @@ func login(c echo2.Context) error {
 		})
 	}
 
-	return echo.ErrUnauthorized
+	return echo2.ErrUnauthorized
 }
 
-func accessible(c echo.Context) error {
+func accessible(c echo2.Context) error {
 	return c.String(http.StatusOK, "Accessible")
 }
 
-func restricted(c echo.Context) error {
+func restricted(c echo2.Context) error {
 	user := c.Get("user").(*jwt.Token)
 	claims := user.Claims.(jwt.MapClaims)
 	name := claims["name"].(string)
-	return c.String(http.StatusOK, "Welcome "+name+"!")
+	return c.String(http.StatusOK, "Welcome "+name+"! your atuh is " + claims["auth"].(string))
 }
-
 
 func show(c echo2.Context) error {
 	name := c.QueryParam("name")
