@@ -35,7 +35,9 @@ type Targetlist struct {
 
 func main() {
 	//Jiema()
-	Bianma()
+	//Bianma()
+	//UseDecoder()
+	UseEncoder()
 }
 
 //从json文件读取内容，解码成golang结构对象
@@ -74,3 +76,30 @@ func Bianma()  {
 	fmt.Printf("%s\n", data2)
 }
 
+//使用json的decoder，直接将file内容解码成实例对象。newdecoder方法接收一个io.reader的参数
+func UseDecoder()  {
+	filePath := "./config/targetlist.json"
+	fi, err := os.Open(filePath)
+	mycommon.Check(err)
+	defer fi.Close()
+
+	dec := json.NewDecoder(fi)
+	targetlist := Targetlist{}
+	err = dec.Decode(&targetlist)
+	mycommon.Check(err)
+
+	fmt.Printf("%s\n", targetlist)
+}
+
+//将movies的实例内容，编码成json格式，写入文件中
+func UseEncoder()  {
+	filePath := "./config/targetlist-test.json"
+	file, err := os.Create(filePath)
+	mycommon.Check(err)
+	defer file.Close()
+
+	movies := movies
+	enc := json.NewEncoder(file)
+	err = enc.Encode(&movies)
+	mycommon.Check(err)
+}
