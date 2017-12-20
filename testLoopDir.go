@@ -1,5 +1,9 @@
 package main
-
+/*
+	遍历目录下的子目录及文件
+filepath.walk：树形遍历全部的子目录和文件，直到尽头。
+ioutil.ReadDir：列出该目录下所有子文件夹和文件，只一层，不再往下。
+*/
 import (
 	"path/filepath"
 	"os"
@@ -7,12 +11,6 @@ import (
 	"fmt"
 	"io/ioutil"
 )
-
-/*
-	遍历目录下的子目录及文件
-filepath.walk：树形遍历全部的子目录和文件，直到尽头。
-ioutil.ReadDir：列出该目录下所有子文件夹和文件，只一层，不再往下。
-*/
 
 func main() {
 	useReadDir()
