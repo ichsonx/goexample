@@ -1,12 +1,18 @@
 package main
 
+/*
+	https://github.com/dgrijalva/jwt-go
+	测试使用jwt，用的别人开发的jwt包
+*/
+
 import (
-	"github.com/dgrijalva/jwt-go"
-	"goexample/mycommon"
 	"io/ioutil"
-	"fmt"
+	"goexample/mycommon"
+	"github.com/dgrijalva/jwt-go"
 	"time"
+	"fmt"
 )
+
 
 const (
 	//密钥用于签名加密
