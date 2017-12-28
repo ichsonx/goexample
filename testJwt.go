@@ -49,6 +49,7 @@ func main() {
 	validToken()
 }
 
+//获取token字符串
 func genToken() string  {
 	//用于测试token时间过期的，过期时间1秒，程序会在生成token后sleep3秒
 	//MyClaims.ExpiresAt = time.Now().Add(time.Second * 1).Unix()
@@ -62,6 +63,8 @@ func genToken() string  {
 	fmt.Printf("使用密钥加密签名后的token字符串：%s \n", token)
 	return token
 }
+
+//从token字符串获取token、claims，验证token，打印claims里的内容
 func validToken()  {
 	//如果是要在请求中获取token，jwt有个request包，
 	//里面有2个方法都可以获取token：jwt/requesst.ParseFromRequestWithClaims和jwt/requesst.ParseFromRequest
