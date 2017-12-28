@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"fmt"
 	"time"
-	"go/token"
 )
 
 const (
@@ -66,16 +65,30 @@ func genToken() string  {
 
 //从token字符串获取token、claims，验证token，打印claims里的内容
 func validToken()  {
-	//如果是要在请求中获取token，jwt有个request包，
+	//如果是要在“请求”中获取token，jwt有个request包，
 	//里面有2个方法都可以获取token：jwt/requesst.ParseFromRequestWithClaims和jwt/requesst.ParseFromRequest
 	tokenstring := genToken()
 	time.Sleep(time.Second * 3)
+	//这个方法是用特定的claims来获取token，其实不同的是最后获取claims时使用什么强制类型转换/或者赋值
+	/*
+	token, err := jwt.ParseWithClaims(tokenstring, &MyCustomClaims{}, func(t *jwt.Token) (interface{}, error) {
+		return SignKey, nil
+	})
+
+	if claims, ok := token.Claims.(*MyCustomClaims); ok && token.Valid{
+		fmt.Printf("%v %v", claims.Foo, claims.StandardClaims.ExpiresAt)
+	} else {
+		fmt.Println(err)
+	}
+	*/
+
 	token, err := jwt.Parse(tokenstring, func(t *jwt.Token) (interface{}, error) {
 		return SignKey, nil
 	})
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid{
-		fmt.Printf("token 通过验证, Foo值： %s  \n", claims["foo"])
+		fmt.Printf("token 通过验证, Foo值： %s  \n ", claims["foo"])
+		fmt.Printf("过期值： %f  \n ", claims["exp"])
 	}else {
 		fmt.Printf("token 验证不通过： \n")
 		fmt.Println(err)
