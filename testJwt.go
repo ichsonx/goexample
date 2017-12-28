@@ -86,6 +86,7 @@ func validToken()  {
 		return SignKey, nil
 	})
 
+	//这里转类型成jwt.MapClaims，一层结构的map
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid{
 		fmt.Printf("token 通过验证, Foo值： %s  \n ", claims["foo"])
 		fmt.Printf("过期值： %f  \n ", claims["exp"])
