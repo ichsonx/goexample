@@ -43,7 +43,6 @@ func useSimpleSugar()  {
 	defer logger.Sync()
 
 	sugar := logger.Sugar()
-
 	sugar.Infow("test simple log",
 		"somekey", "value",
 			"url", url,
