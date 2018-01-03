@@ -9,6 +9,7 @@ import (
 一个简书例子：https://www.jianshu.com/p/5fac8bed4505
 一个stars很多的项目。日志项目。
 comment：hook暂时来说作用不大。如果要一个日志要同时输出到多个地方（console、logfile）只能创建多个实例来完成。
+如无特殊情况，用法还是挺简单的。
 */
 func main() {
 	useLogToMutiplePlace()
