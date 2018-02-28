@@ -33,7 +33,7 @@ func GetWinTaskList() [][]string {
 		//因为windows开始的2行都是些title
 		if counter > 2{
 			tmp := strings.Split(line, ",")
-			//白痴的windows，竟然还会有空！？
+			//白痴的windows，竟然还会有空！？他妈在逗我
 			if tmp[0] == "" || tmp[1] == "" || tmp[2] == "" || tmp[3] == ""{
 				continue
 			}
