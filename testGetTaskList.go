@@ -12,8 +12,7 @@ import (
 )
 
 func main() {
-	list := GetWinTaskList()
-	fmt.Println(strings.Count(list, "QQ.exe"))
+	fmt.Println(CountWinTask("chrome.exe", GetWinTaskList()))
 
 }
 
@@ -21,30 +20,32 @@ func main() {
 func GetWinTaskList() string  {
 	var output []byte
 	var err error
-
-	cmd := exec.Command("tasklist")
+	// 格式化获得进程列表，还有LIST, TABLE
+	cmd := exec.Command("tasklist", "/FO",  "CSV")
 	if output, err = cmd.Output(); err != nil{
 		fmt.Print(err)
-		os.Exit(1)
+		os.Exit(0)
 	}
-
 	liststring := string(output)
-	// 用空格分隔字符串，多个连续空格当作一个处理
-	//for _, process := range strings.Split(liststring, "\n"){
-	//	fmt.Println(process)
-	//}
 	return liststring
 }
 
 //根据名字返回有多少个同名进程，一个浏览器多个tab都等于多个进程；java、tomcat等的貌似都叫java.exe
-func CountWinTask(taskName string) int  {
-	return strings.Count(GetWinTaskList(), taskName)
-}
-
-//如果taskName这个服务存在，返回真，否则返回假
-func WinTaskAlive(taskName string) bool  {
-	if CountWinTask(taskName) > 0 {
-		return true
+func CountWinTask(taskName string, taskList string) int  {
+	var result = 0
+	counter := 0
+	// 用空格分隔字符串，多个连续空格当作一个处理
+	for _, line := range strings.Split(taskList, "\n"){
+		//因为windows开始的2行都是些title
+		if counter > 1{
+			tmp := strings.Split(line, ",")
+			//fmt.Println(string([]rune(tmp[0])[1:len(tmp[0])-1]))
+			//截取出来的数组中的每个元素都带有双引号，所以做字符串截取处理
+			if strings.Trim(tmp[0], " ") != "" && string([]rune(tmp[0])[1:len(tmp[0])-1]) == taskName{
+				result ++
+			}
+		}
+		counter ++
 	}
-	return false
+	return result
 }
