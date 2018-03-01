@@ -41,19 +41,4 @@ func checkerr(err error)  {
 	}
 }
 
-//转码函数，根据参数中的charset来转换成utf8
-//func ConvertString2Utf8(content string, charset string) string  {
-//	var result string
-//	if content != ""{
-//		switch strings.ToLower(charset) {
-//		case "gbk", "gb18030":
-//			enc := mahonia.NewDecoder("gbk")
-//			result = enc.ConvertString(content)
-//		case "utf8", "utf-8":
-//			fallthrough
-//		default:
-//			result = content
-//		}
-//	}
-//	return result
-//}
+
