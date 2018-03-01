@@ -9,16 +9,15 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"github.com/axgle/mahonia"
 )
 
 func main() {
-	GetWinTaskList()
-	//for _, v := range list{
-	//	if strings.Contains(v[3], "百度"){
-	//	fmt.Println(v[3])
-	//	}
-	//}
+	list := GetWinTaskList()
+	for _, v := range list{
+		if strings.Contains(v[3], "goexample"){
+			fmt.Println(v[3])
+		}
+	}
 }
 
 //获取windows下进程列表，返回的是一个二维slice（目前只在win10下测试通过）
@@ -40,22 +39,20 @@ func GetWinTaskList() [][]string {
 		//因为windows开始的2行都是些title
 		if counter > 2{
 			tmp := strings.Split(line, ",\"")
+			var result []string
 			//白痴的windows，竟然还会有空！？他妈在逗我
 			if tmp[0] == "" || tmp[1] == "" || tmp[5] == "" || tmp[8] == ""{
 				continue
 			}
 			//processName = string([]rune(processName)[1:len(processName)-1])
-			processName := strings.Trim(tmp[0], "\"")	// 进程名
-			pid := strings.Trim(tmp[1], "\"")			// pid
-			status := strings.Trim(tmp[5], "\"")			// 状态 Unknown/Running/Not responding 或许还有
-			windowName := strings.Trim(tmp[8], "\"")		// 窗口名称
-
 			//一般windows的字符串都有中文或者乱码，可以用mahonia来转码
-			tmp[0] = processName
-			tmp[1] = pid
-			tmp[2] = status
-			tmp[3] = windowName
-			tasklist = append(tasklist, tmp)
+			//以下能得到干净的值存入二维数组，但不优雅。因为windows输出的就是一堆字符串
+			result = append(result, string([]rune(tmp[0])[1:len(tmp[0])-1]))	// 进程名
+			result = append(result, string([]rune(tmp[1])[0:len(tmp[1])-1]))	// pid
+			result = append(result, string([]rune(tmp[5])[0:len(tmp[5])-1]))	// 状态 Unknown/Running/Not responding 或许还有
+			result = append(result, string([]rune(tmp[8])[:len(tmp[8])-2]))		// 窗口名称
+
+			tasklist = append(tasklist, result)
 		}
 		counter ++
 	}
