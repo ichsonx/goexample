@@ -1,3 +1,8 @@
+/*
+	2018-03-01
+	支持中文乱码编码解码的第三方包，google也提供了个原生包golang.org/x/text/encoding/simplifiedchinese（https://github.com/golang/text/tree/master/encoding/simplifiedchinese,墙的原因，依赖很难下载，算了）
+*/
+
 package main
 
 import (
@@ -6,6 +11,7 @@ import (
 	"io/ioutil"
 	"github.com/axgle/mahonia"
 	"github.com/antchfx/xquery/html"
+	"strings"
 )
 
 func main() {
@@ -24,7 +30,7 @@ func main() {
 	fmt.Println(content)
 }
 
-func queryByXquery(url string) {
+func QueryByXquery(url string) {
 	doc, err := htmlquery.LoadURL(url)
 	checkerr(err)
 	println(doc)
@@ -34,3 +40,20 @@ func checkerr(err error)  {
 		fmt.Println(err)
 	}
 }
+
+//转码函数，根据参数中的charset来转换成utf8
+//func ConvertString2Utf8(content string, charset string) string  {
+//	var result string
+//	if content != ""{
+//		switch strings.ToLower(charset) {
+//		case "gbk", "gb18030":
+//			enc := mahonia.NewDecoder("gbk")
+//			result = enc.ConvertString(content)
+//		case "utf8", "utf-8":
+//			fallthrough
+//		default:
+//			result = content
+//		}
+//	}
+//	return result
+//}

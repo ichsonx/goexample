@@ -9,15 +9,16 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"github.com/axgle/mahonia"
 )
 
 func main() {
-	list := GetWinTaskList()
-	for _, v := range list{
-		if strings.Contains(v[3], "cmd.exe"){
-		fmt.Println(v[3])
-		}
-	}
+	GetWinTaskList()
+	//for _, v := range list{
+	//	if strings.Contains(v[3], "百度"){
+	//	fmt.Println(v[3])
+	//	}
+	//}
 }
 
 //获取windows下进程列表，返回的是一个二维slice（目前只在win10下测试通过）
@@ -34,6 +35,7 @@ func GetWinTaskList() [][]string {
 
 	counter := 0
 	// 用空格分隔字符串，多个连续空格当作一个处理
+	//fmt.Printf("%s ", string(output))
 	for _, line := range strings.Split(string(output), "\n"){
 		//因为windows开始的2行都是些title
 		if counter > 2{
@@ -42,28 +44,24 @@ func GetWinTaskList() [][]string {
 			if tmp[0] == "" || tmp[1] == "" || tmp[5] == "" || tmp[8] == ""{
 				continue
 			}
-			processName := strings.Trim(tmp[0], " ") 	// 进程名
 			//processName = string([]rune(processName)[1:len(processName)-1])
-			processName = strings.Trim(processName, "\"")
-			pid := strings.Trim(tmp[1], " ")			// pid
-			pid = strings.Trim(pid, "\"")
-			status := strings.Trim(tmp[5], " ")			// 状态 Unknown/Running/Not responding 或许还有
-			status = strings.Trim(status, "\"")
-			windowName := strings.Trim(tmp[8], " ")		// 窗口名称
-			windowName = strings.Trim(windowName, "\"")
+			processName := strings.Trim(tmp[0], "\"")	// 进程名
+			pid := strings.Trim(tmp[1], "\"")			// pid
+			status := strings.Trim(tmp[5], "\"")			// 状态 Unknown/Running/Not responding 或许还有
+			windowName := strings.Trim(tmp[8], "\"")		// 窗口名称
 
-			//截取出来的数组中的每个元素都带有双引号，所以做字符串截取处理
+			//一般windows的字符串都有中文或者乱码，可以用mahonia来转码
 			tmp[0] = processName
 			tmp[1] = pid
 			tmp[2] = status
 			tmp[3] = windowName
-
 			tasklist = append(tasklist, tmp)
 		}
 		counter ++
 	}
 	return tasklist
 }
+
 
 //根据名字返回有多少个同名进程，一个浏览器多个tab都等于多个进程；java、tomcat等的貌似都叫java.exe
 //func CountWinTask(taskName string, taskList [][]string) int  {

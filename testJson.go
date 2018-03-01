@@ -34,10 +34,10 @@ type Targetlist struct {
 } 
 
 func main() {
-	//Jiema()
+	Jiema()
 	//Bianma()
 	//UseDecoder()
-	UseEncoder()
+	//UseEncoder()
 }
 
 //从json文件读取内容，解码成golang结构对象
