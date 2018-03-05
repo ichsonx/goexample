@@ -11,18 +11,43 @@ import (
 	"strings"
 	"fmt"
 	"gopkg.in/gomail.v2"
+	"github.com/admpub/mail"
 )
 
 var (
 	pw = "tmakpyqrpqkkbjfa"
 	user = "sonxz@qq.com"
 	host = "smtp.qq.com"
-	to = []string{"104024786@qq.com"}
+	to = []string{"104024786@qq.com", "sonxz@qq.com"}
 	port = 465
 )
 
 func main() {
-	SendEMailByGomail()
+	SendEMailByAdmPub()
+}
+
+func SendEMailByAdmPub()  {
+	conf := &mail.SMTPConfig{
+		Username: user,
+		Password: pw,
+		Host:     host,
+		Port:     port,
+		Secure:   "SSL",
+	}
+	c := mail.NewSMTPClient(conf)
+	m := mail.NewMail()
+	m.AddTo(user) //或 "老弟 <hello@admpub.com>"
+	m.AddFrom(user) //或 "老哥 <hank@admpub.com>"
+	m.AddSubject("Testing")
+	m.AddText("Some text :)")
+	m.Bcc = to
+	//filepath, _ := os.Getwd()
+	//m.AddAttachment(filepath + "/mail.go")
+	if e := c.Send(m); e != nil {
+		fmt.Println(e)
+	} else {
+		fmt.Println("发送成功")
+	}
 }
 
 //使用第三方库gomail，
