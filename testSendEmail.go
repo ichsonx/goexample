@@ -1,6 +1,6 @@
 /*
 	2018-03-05
-	1.使用三方库来发送email
+	1.使用三方库来发送email（包括了【gomail】【https://github.com/admpub/mail】）
 	2.使用go内置函数smtp发送email（待完善）
 */
 
@@ -26,6 +26,8 @@ func main() {
 	SendEMailByAdmPub()
 }
 
+//使用https://github.com/admpub/mail的第三方
+//缺点1：bcc实际效果是“抄送”，而且没有“暗抄”功能
 func SendEMailByAdmPub()  {
 	conf := &mail.SMTPConfig{
 		Username: user,
@@ -53,6 +55,7 @@ func SendEMailByAdmPub()  {
 //使用第三方库gomail，
 // 缺点1：版本管理混乱，分别在github和gopkg.in都有代码和文档，而且文档中有的部分方法在引入代码后，根本就没有，证明作者没有版本更新代码
 // 缺点2：不允许多个cc或者bcc，已经查看源代码验证了
+// 不明白网上那么多人使用的原因
 func SendEMailByGomail()  {
 	m := gomail.NewMessage()
 	m.SetHeader("From", user)
