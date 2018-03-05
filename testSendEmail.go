@@ -20,7 +20,10 @@ var (
 )
 
 func main() {
-	SendEMailBySMTP()
+}
+
+func SendEMailByGomail()  {
+
 }
 
 //使用golang的原生库smtp来发送邮件
@@ -39,18 +42,3 @@ func SendEMailBySMTP()  {
 		fmt.Printf("send mail error: %v", err)
 	}
 }
-
-//使用golang的原生库smtp来发送邮件,通过tls
-//func SendEMailBySMTPByTLS()  {
-//	nickname := "test"
-//	user := "sonxz@qq.com"
-//	subject := "test mail"
-//	content_type := "Content-Type: text/plain; charset=UTF-8"
-//	body := "This is the email body."
-//	msg := []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
-//		"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
-//	err := smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
-//	if err != nil {
-//		fmt.Printf("send mail error: %v", err)
-//	}
-//}
