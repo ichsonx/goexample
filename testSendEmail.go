@@ -12,10 +12,11 @@ import (
 	"fmt"
 )
 
-const(
-	PW = "tmakpyqrpqkkbjfa"
-	USER = "sonxz@qq.com"
-	HOST = "smtp.qq.com"
+var (
+	pw = "tmakpyqrpqkkbjfa"
+	user = "sonxz@qq.com"
+	host = "smtp.qq.com"
+	to = []string{"104024786@qq.com"}
 )
 
 func main() {
@@ -23,12 +24,11 @@ func main() {
 }
 
 //使用golang的原生库smtp来发送邮件
+//没有使用ssl/tsl协议发送，即非安全方法，这里使用gmail或者qq邮箱肯定不行
 func SendEMailBySMTP()  {
 	//配置smtp服务器的身份权限认证
-	auth := smtp.PlainAuth("", USER, PW, HOST)
-	to := []string{"104024786@qq.com"}
+	auth := smtp.PlainAuth("", user, pw, host)
 	nickname := "test"
-	user := "sonxz@qq.com"
 	subject := "test mail"
 	content_type := "Content-Type: text/plain; charset=UTF-8"
 	body := "This is the email body."
