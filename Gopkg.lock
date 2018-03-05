@@ -32,12 +32,6 @@
   version = "v3.1.0"
 
 [[projects]]
-  name = "github.com/go-gomail/gomail"
-  packages = ["."]
-  revision = "41f3572897373c5538c50a2402db15db079fa4fd"
-  version = "2.0.0"
-
-[[projects]]
   name = "github.com/labstack/echo"
   packages = [
     ".",
@@ -171,9 +165,15 @@
   packages = ["."]
   revision = "2caba252f4dc53eaf6b553000885530023f54623"
 
+[[projects]]
+  name = "gopkg.in/gomail.v2"
+  packages = ["."]
+  revision = "41f3572897373c5538c50a2402db15db079fa4fd"
+  version = "2.0.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7c346fb5badd302e3a4d06442328d21835b23345f166ec66721b14cee209fcd9"
+  inputs-digest = "ab6a1563251f70efe5f3dda0bf8c15049ff523cef5c5b22ae61af9985ab78756"
   solver-name = "gps-cdcl"
   solver-version = 1
