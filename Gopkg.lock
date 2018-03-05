@@ -9,6 +9,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/admpub/mail"
+  packages = ["."]
+  revision = "d63147b0317bf02b0092e9371d09abfcbc3b2b8c"
+
+[[projects]]
+  branch = "master"
   name = "github.com/antchfx/xpath"
   packages = ["."]
   revision = "58d12fe685d684ed55aab3b988394652025e36dc"
@@ -174,6 +180,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ab6a1563251f70efe5f3dda0bf8c15049ff523cef5c5b22ae61af9985ab78756"
+  inputs-digest = "a6434304b75a0602704b5edfc69acdfb710a0eace134d4662cfd8b61a60959f6"
   solver-name = "gps-cdcl"
   solver-version = 1
