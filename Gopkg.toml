@@ -45,3 +45,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/admpub/mail"
+
+[[constraint]]
+  name = "github.com/jordan-wright/email"
+  version = "3.0.0"

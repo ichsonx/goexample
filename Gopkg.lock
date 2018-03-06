@@ -38,6 +38,12 @@
   version = "v3.1.0"
 
 [[projects]]
+  name = "github.com/jordan-wright/email"
+  packages = ["."]
+  revision = "94ae17dedda217a49e3b47d68f1b54b3c946e16b"
+  version = "v3.0"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = [
     ".",
@@ -180,6 +186,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0ecde77e8e33665d68febca23a4490482681ccce0be971505c6d02b4cdf727aa"
+  inputs-digest = "f67609aa8fcfa3830cead9aed5ae171e1d5e8d163ce0f3441d670dc5ac244b2f"
   solver-name = "gps-cdcl"
   solver-version = 1
