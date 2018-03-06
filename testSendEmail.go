@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"gopkg.in/gomail.v2"
 	"github.com/admpub/mail"
+	"github.com/jordan-wright/email"
 )
 
 var (
@@ -23,7 +24,20 @@ var (
 )
 
 func main() {
-	SendEMailByAdmPub()
+	//SendEMailByAdmPub()
+}
+
+//有使用tls的方法，但没有例子，其中的tls.config一大段解说没例子。虽然有bcc、cc。但连ssl都没有邮件都发不了
+func SendEMailBymail()  {
+	e := email.NewEmail()
+	e.From = "Jordan Wright <sonxz@qq.com>"
+	e.To = []string{user}
+	e.Bcc = []string{"104024786@qq.com"}
+	e.Cc = []string{"zjw@cerx.cn"}
+	e.Subject = "Awesome Subject"
+	e.Text = []byte("Text Body is, of course, supported!")
+	e.HTML = []byte("<h1>Fancy HTML is supported, too!</h1>")
+	e.Send("smtp.qq.com:465", smtp.PlainAuth("", user, pw, "smtp.qq.com"))
 }
 
 //使用https://github.com/admpub/mail的第三方
