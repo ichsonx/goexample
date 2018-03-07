@@ -11,7 +11,6 @@ import (
 	"io/ioutil"
 	"github.com/axgle/mahonia"
 	"github.com/antchfx/xquery/html"
-	"strings"
 )
 
 func main() {

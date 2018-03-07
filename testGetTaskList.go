@@ -9,16 +9,35 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"github.com/axgle/mahonia"
 )
 
 func main() {
-	list := GetWinTaskList()
-	for _, v := range list{
-		if strings.Contains(v[3], "goexample"){
-			fmt.Println(v[3])
-		}
-	}
+	//list := GetWinTaskList()
+	//for _, v := range list{
+	//	fmt.Println(v[3])
+	//	//if strings.Contains(v[3], "goexample"){
+	//	//	fmt.Println(v[3])
+	//	//}
+	//}
+	//Gettl()
 }
+
+func Gettl()  {
+	var output []byte
+	var err error
+	// 格式化获得进程列表，还有LIST, TABLE
+	cmd := exec.Command("tasklist", "/FO",  "list", "/V")
+	if output, err = cmd.Output(); err != nil{
+		fmt.Print(err)
+		os.Exit(0)
+	}
+	enc := mahonia.NewDecoder("gbk")
+
+	fmt.Println(enc.ConvertString(string(output)))
+
+}
+
 
 //获取windows下进程列表，返回的是一个二维slice（目前只在win10下测试通过）
 func GetWinTaskList() [][]string {
@@ -33,9 +52,11 @@ func GetWinTaskList() [][]string {
 	}
 
 	counter := 0
-	// 用空格分隔字符串，多个连续空格当作一个处理
-	//fmt.Printf("%s ", string(output))
-	for _, line := range strings.Split(string(output), "\n"){
+	//基于白痴的windows，结尾使用\r\n，更白痴的是，这里必须这样\"\r\n来分割，否则后续再处理这个双引号，会引起很多数组越界、处理无效等情况
+	//根据debug等多种测试，怀疑不这样split，剩余的行末尾会带有某些其他字符，导致处理失败，层试过用[]rune，这就更奇怪了，
+	//从[:leng()-1]到[:len()-5]竟然都不出现越界，很多字符串都最多只有3的长度，应该异常的地方不异常，这就很诡异了，以后尽量少处理windows下的东西
+	//windows稳定性、不确定性、通用性太差
+	for _, line := range strings.Split(string(output), "\"\r\n"){
 		//因为windows开始的2行都是些title
 		if counter > 2{
 			tmp := strings.Split(line, ",\"")
