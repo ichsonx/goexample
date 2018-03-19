@@ -19,7 +19,7 @@ func main() {
 	}
 	defer page.Close()
 
-	if err := page.Open("https://google.com"); err != nil {
+	if err := page.Open("https://www.google.com"); err != nil {
 		fmt.Println(err)
 	}
 
