@@ -21,7 +21,7 @@ func main() {
 
 	if err := page.Open("https://www.google.com"); err != nil {
 		fmt.Println(err)
+	}else {
+		fmt.Println(page.Content())
 	}
-
-	fmt.Println(page.Content())
 }
