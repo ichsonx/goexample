@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-
+	useCurl()
 }
 
 func useCurl() {
