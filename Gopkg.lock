@@ -32,6 +32,12 @@
   revision = "0c44128a83abf861873f8f4ec81fe58ff1cf6ea4"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/benbjohnson/phantomjs"
+  packages = ["."]
+  revision = "1b81734f7877b51cadd82ee32663ae88f630469c"
+
+[[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
   revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
@@ -186,6 +192,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f67609aa8fcfa3830cead9aed5ae171e1d5e8d163ce0f3441d670dc5ac244b2f"
+  inputs-digest = "0001eb237eb3df57a880b14edf86e228ea7ee79a0baa359671203f6302d6d6a5"
   solver-name = "gps-cdcl"
   solver-version = 1
