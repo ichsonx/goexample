@@ -20,7 +20,7 @@ func useCurl() {
 		fmt.Print(err)
 		os.Exit(0)
 	}
-	fmt.Println(output)
+	fmt.Println(string(output))
 }
 
 func usePhantomjs() {
