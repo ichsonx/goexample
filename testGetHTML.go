@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"log"
+	"time"
 )
 
 var (
@@ -38,6 +39,8 @@ func useCurl() {
 }
 
 func usePhantomjs() {
+	start := time.Now()
+
 	errFile,err:=os.OpenFile("errors.log",os.O_CREATE|os.O_WRONLY|os.O_APPEND,0666)
 	if err!=nil{
 		log.Fatalln("打开日志文件失败：",err)
@@ -63,5 +66,6 @@ func usePhantomjs() {
 			Info.Println(page.Content())
 		}
 	}
-
+	elapsed  := time.Since(start)
+	fmt.Printf("coast time:", elapsed )
 }
