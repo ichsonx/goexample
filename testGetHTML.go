@@ -62,7 +62,7 @@ func usePhantomjs() {
 		if err := page.Open(url); err != nil {
 			fmt.Println(err)
 		} else {
-			//fmt.Println(page.Content())
+			fmt.Println(page.Content())
 			Info.Println(page.Content())
 		}
 	}
