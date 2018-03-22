@@ -27,6 +27,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/antchfx/htmlquery"
+  packages = ["."]
+  revision = "9f7717ac9bac5f660391c57e3d496b3c7cf9741f"
+
+[[projects]]
+  branch = "master"
   name = "github.com/antchfx/xpath"
   packages = ["."]
   revision = "58d12fe685d684ed55aab3b988394652025e36dc"
@@ -204,6 +210,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3a8d8d272f9c3a29896264c5b43e9df523973de3f53aed251bd6ce84cc96559e"
+  inputs-digest = "bea2fcd5b54dcbbf463e37dfb67fcb08a6df457ec13326a784df580413747b35"
   solver-name = "gps-cdcl"
   solver-version = 1
