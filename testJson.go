@@ -10,6 +10,7 @@ import (
 	"fmt"
 	_ "goexample/mycommon"
 	"goexample/mycommon"
+	"log"
 )
 
 type Movie struct {
@@ -31,13 +32,29 @@ var movies = []Movie{
 //类型名、变量名需要首字母大写，否则其他函数内访问不了，缺一不可
 type Targetlist struct {
 	Names []string `json:"names"`
-} 
+}
+
+type Authorlist struct {
+	Names []string `json:"names"`
+}
 
 func main() {
-	Jiema()
+	//Jiema()
 	//Bianma()
 	//UseDecoder()
 	//UseEncoder()
+	authorlistpath := "./authorlist.json"
+	authorlist     := Authorlist{}
+	authorfile, err := os.Open(authorlistpath)
+	if err != nil {
+		log.Fatalln("打开authorlist.json文件失败：", err)
+	}
+	dec := json.NewDecoder(authorfile)
+	err = dec.Decode(&authorlist)
+	if err != nil {
+		log.Fatalln("解码author文件失败：", err)
+	}
+	fmt.Println(len(authorlist.Names))
 }
 
 //从json文件读取内容，解码成golang结构对象

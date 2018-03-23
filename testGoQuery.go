@@ -4,24 +4,28 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"log"
 	"fmt"
+	"os"
+	"strings"
 )
 
 //真心不好用啊goquery
 func main() {
-	doc, err := goquery.NewDocument("http://w3.afulyu.info/pw/thread.php?fid=22&page=5")
+	f, err := os.Open(`tmp.html`)
+	doc, err := goquery.NewDocumentFromReader(f)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	//fmt.Println(doc.Html())
 	doc.Find("tr[class$=t_one]").Each(func(i int, s *goquery.Selection) {
-		// For each item found, get the band and title
-		//band := s.Find("a").Text()
-		//title := s.Find("i").Text()
-		//fmt.Printf("Review %d: %s - %s\n", i, band, title)
-		fmt.Println(i)
-		fmt.Println(s.Html())
-		s.Children()
+		au := strings.Trim(s.Find("a[class=bl]").Text(), " ")
+		title := strings.Trim(s.Find("h3 a").Text(), " ")
+		url, _ := s.Find("h3 a").Attr("href")
+		if au != "" && au != "mh1024"{
+			if strings.Contains(title, "超優") {
+				fmt.Println(url)
+			}
+		}
 	})
 }
 
