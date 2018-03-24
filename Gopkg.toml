@@ -61,3 +61,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/antchfx/htmlquery"
+
+[[constraint]]
+  branch = "v2"
+  name = "gopkg.in/mgo.v2"
