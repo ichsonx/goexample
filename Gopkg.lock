@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/360EntSecGroup-Skylar/excelize"
+  packages = ["."]
+  revision = "6d634ca320acca28a84f25888a04c0861548d5ed"
+  version = "v1.2"
+
+[[projects]]
   name = "github.com/BurntSushi/toml"
   packages = ["."]
   revision = "b26d9c308763d68093482582cea63d69be07a0f0"
@@ -207,21 +213,9 @@
   revision = "41f3572897373c5538c50a2402db15db079fa4fd"
   version = "2.0.0"
 
-[[projects]]
-  branch = "v2"
-  name = "gopkg.in/mgo.v2"
-  packages = [
-    ".",
-    "bson",
-    "internal/json",
-    "internal/sasl",
-    "internal/scram"
-  ]
-  revision = "3f83fa5005286a7fe593b055f0d7771a7dce4655"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "09513c337a96d7920b92af9a11298edd0b1c47889d1fed9106d546860ab9d624"
+  inputs-digest = "3f201330994809d0d22f25363f518234445497c7498a01acd7660ae4adbaa1fc"
   solver-name = "gps-cdcl"
   solver-version = 1

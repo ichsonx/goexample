@@ -65,3 +65,7 @@
 [[constraint]]
   branch = "v2"
   name = "gopkg.in/mgo.v2"
+
+[[constraint]]
+  name = "github.com/360EntSecGroup-Skylar/excelize"
+  version = "1.2.0"
