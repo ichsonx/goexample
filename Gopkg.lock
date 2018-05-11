@@ -2,12 +2,6 @@
 
 
 [[projects]]
-  name = "github.com/360EntSecGroup-Skylar/excelize"
-  packages = ["."]
-  revision = "6d634ca320acca28a84f25888a04c0861548d5ed"
-  version = "v1.2"
-
-[[projects]]
   name = "github.com/BurntSushi/toml"
   packages = ["."]
   revision = "b26d9c308763d68093482582cea63d69be07a0f0"
@@ -66,6 +60,18 @@
   packages = ["."]
   revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
   version = "v3.1.0"
+
+[[projects]]
+  name = "github.com/francoispqt/gojay"
+  packages = ["."]
+  revision = "d096375da20dd060cb672ea511e0c993d6e115a2"
+  version = "0.10.7"
+
+[[projects]]
+  name = "github.com/francoispqt/onelog"
+  packages = ["."]
+  revision = "dd458d518d6947b8cb861a6281e73cad9d67bdfa"
+  version = "0.11.1"
 
 [[projects]]
   name = "github.com/jordan-wright/email"
@@ -213,9 +219,21 @@
   revision = "41f3572897373c5538c50a2402db15db079fa4fd"
   version = "2.0.0"
 
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/mgo.v2"
+  packages = [
+    ".",
+    "bson",
+    "internal/json",
+    "internal/sasl",
+    "internal/scram"
+  ]
+  revision = "3f83fa5005286a7fe593b055f0d7771a7dce4655"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3f201330994809d0d22f25363f518234445497c7498a01acd7660ae4adbaa1fc"
+  inputs-digest = "76d7d02342a3de3f7df83d536bd7b819cefb79da3eb59decc183cf5310435db3"
   solver-name = "gps-cdcl"
   solver-version = 1
