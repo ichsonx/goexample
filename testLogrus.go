@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"os"
 )
 /*
@@ -12,21 +12,40 @@ comment：hook暂时来说作用不大。如果要一个日志要同时输出到
 如无特殊情况，用法还是挺简单的。
 */
 func main() {
-	useLogToMutiplePlace()
+	//useLogToMutiplePlace()
+	changeFormatter()
+	//useLogToMutiplePlace2()
 }
 
 //可以将日志输出到文件中，但不会出现在console中
 func useLogToMutiplePlace()  {
-	log := logrus.New()
 	file, err := os.OpenFile("logrus.log", os.O_CREATE|os.O_WRONLY, 0666)
 	if err == nil {
-		log.Out = file
+		log.SetOutput(file)
 	} else {
 		log.Info("Failed to log to file, using default stderr")
 	}
-	log.WithFields(logrus.Fields{ 
-		"filename": "123.txt",
-	}).Info("打开文件失败")
-
-
+	log.WithFields(log.Fields{
+		"animal": "walrus",
+		"size":   10,
+	}).Info("A group of walrus emerges from the ocean")
 }
+func useLogToMutiplePlace2()  {
+	logger := log.New()
+	logger.Out = os.Stdout
+	logger.Formatter = &log.JSONFormatter{}
+	logger.Level = log.InfoLevel
+
+	logger.Info("just a test for log.New() method to create a logger instance")
+}
+
+//更换输出格式  json / text
+//当使用text模式，time属性会是第一个字段；使用json模式，time属性非第一个字段。
+func changeFormatter()  {
+	//默认情况下使用的是textformatter
+	//logrus.SetFormatter(&logrus.JSONFormatter{})
+	log.SetFormatter(&log.JSONFormatter{})
+	//log := log.New()
+	log.Info("just a test for json formatter")
+}
+
