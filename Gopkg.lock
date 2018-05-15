@@ -10,8 +10,8 @@
 [[projects]]
   name = "github.com/PuerkitoBio/goquery"
   packages = ["."]
-  revision = "09540e565986583836b5fc792fe951ec5fd201dd"
-  version = "v1.3.0"
+  revision = "a86ea073017a6beddef78c8659e7224e8ca634b0"
+  version = "v1.4.0"
 
 [[projects]]
   branch = "master"
@@ -29,25 +29,25 @@
   branch = "master"
   name = "github.com/antchfx/htmlquery"
   packages = ["."]
-  revision = "9f7717ac9bac5f660391c57e3d496b3c7cf9741f"
+  revision = "d0044020e702a9e547420f403bddf4ee1673ac3f"
 
 [[projects]]
   branch = "master"
   name = "github.com/antchfx/xpath"
   packages = ["."]
-  revision = "58d12fe685d684ed55aab3b988394652025e36dc"
+  revision = "7148e5d6bb845772731e3979df279a1b0e8e90ac"
 
 [[projects]]
   branch = "master"
   name = "github.com/antchfx/xquery"
   packages = ["html"]
-  revision = "fe40116ae25314279c67d0f1f76a4bc8ed823fd2"
+  revision = "ad5b8c7a47b007a1cdaf6616ece1f71e94c189a6"
 
 [[projects]]
   branch = "master"
   name = "github.com/axgle/mahonia"
   packages = ["."]
-  revision = "0c44128a83abf861873f8f4ec81fe58ff1cf6ea4"
+  revision = "3358181d7394e26beccfae0ffde05193ef3be33a"
 
 [[projects]]
   branch = "master"
@@ -58,20 +58,8 @@
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
-  revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
-  version = "v3.1.0"
-
-[[projects]]
-  name = "github.com/francoispqt/gojay"
-  packages = ["."]
-  revision = "d096375da20dd060cb672ea511e0c993d6e115a2"
-  version = "0.10.7"
-
-[[projects]]
-  name = "github.com/francoispqt/onelog"
-  packages = ["."]
-  revision = "dd458d518d6947b8cb861a6281e73cad9d67bdfa"
-  version = "0.11.1"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
 
 [[projects]]
   name = "github.com/jordan-wright/email"
@@ -85,8 +73,8 @@
     ".",
     "middleware"
   ]
-  revision = "0473c51f1dbd83487effce00702571d19033a6e5"
-  version = "3.2.5"
+  revision = "6d227dfea4d2e52cb76856120b3c17f758139b4e"
+  version = "3.3.5"
 
 [[projects]]
   name = "github.com/labstack/gommon"
@@ -96,8 +84,8 @@
     "log",
     "random"
   ]
-  revision = "57409ada9da0f2afad6664c49502f8c50fbd8476"
-  version = "0.2.3"
+  revision = "588f4e8bddc6cb45c27b448e925c7fd6a5545434"
+  version = "0.2.5"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -114,8 +102,8 @@
 [[projects]]
   name = "github.com/sirupsen/logrus"
   packages = ["."]
-  revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
-  version = "v1.0.4"
+  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
+  version = "v1.0.5"
 
 [[projects]]
   branch = "master"
@@ -132,8 +120,8 @@
 [[projects]]
   name = "go.uber.org/atomic"
   packages = ["."]
-  revision = "8474b86a5a6f79c443ce4b2992817ff32cf208b8"
-  version = "v1.3.1"
+  revision = "1ea20fb1cbb1cc08cbd0d913a96dead89aa18289"
+  version = "v1.3.2"
 
 [[projects]]
   name = "go.uber.org/multierr"
@@ -151,8 +139,8 @@
     "internal/exit",
     "zapcore"
   ]
-  revision = "35aad584952c3e7020db7b839f6b102de6271f89"
-  version = "v1.7.1"
+  revision = "eeedf312bc6c57391d84767a4cd413f02a917974"
+  version = "v1.8.0"
 
 [[projects]]
   branch = "master"
@@ -162,7 +150,7 @@
     "acme/autocert",
     "ssh/terminal"
   ]
-  revision = "b080dc9a8c480b08e698fb1219160d598526310f"
+  revision = "1a580b3eff7814fc9b40602fd35256c63b50f491"
 
 [[projects]]
   branch = "master"
@@ -172,7 +160,7 @@
     "html/atom",
     "html/charset"
   ]
-  revision = "c7086645de248775cbf2373cf5ca4d2fa664b8c1"
+  revision = "2491c5de3490fced2f6cff376127c667efeed857"
 
 [[projects]]
   branch = "master"
@@ -181,10 +169,9 @@
     "unix",
     "windows"
   ]
-  revision = "4ff8c001ce4cc464e644b922325097228fce14d8"
+  revision = "7c87d13f8e835d2fb3a70a2912c811ed0c1d241b"
 
 [[projects]]
-  branch = "master"
   name = "golang.org/x/text"
   packages = [
     "encoding",
@@ -205,7 +192,8 @@
     "transform",
     "unicode/cldr"
   ]
-  revision = "88f656faf3f37f690df1a32515b479415e1a6769"
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
 
 [[projects]]
   branch = "v3"
@@ -234,6 +222,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "76d7d02342a3de3f7df83d536bd7b819cefb79da3eb59decc183cf5310435db3"
+  inputs-digest = "6bccc307af24e2d6b22d86d6629b1d4e89a2db9101acda5cc6842ea7b24c6a12"
   solver-name = "gps-cdcl"
   solver-version = 1

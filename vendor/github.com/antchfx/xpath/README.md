@@ -7,9 +7,15 @@ XPath
 
 XPath is Go package provides selecting nodes from XML, HTML or other documents using XPath expression.
 
-[XQuery](https://github.com/antchfx/xquery) : lets you extract data from HTML/XML documents using XPath package.
+Implementation
+===
 
-### Features
+- [HTMLQuery](https://github.com/antchfx/htmlquery) - Extract data from HTML documents using XPath.
+
+- [XMLQuery](https://github.com/antchfx/xmlquery) - Extract data from XML documents using XPath.
+
+Supported Features
+===
 
 #### The basic XPath patterns.
 
@@ -45,7 +51,7 @@ XPath is Go package provides selecting nodes from XML, HTML or other documents u
 
 - `//b` : Returns elements in the entire document matching b.
 
-- `a|b` : All nodes matching a or b.
+- `a|b` : All nodes matching a or b, union operation(not boolean or).
 
 #### Node Axes 
 
@@ -101,19 +107,20 @@ XPath is Go package provides selecting nodes from XML, HTML or other documents u
 
 - `fun(arg1, ..., argn)` : Function calls.
 
-    * position()
-    * last()
-    * count( node-set )
-    * name()
-    * starts-with( string, string )
-    * normalize-space( string )
-    * substring( string , start [, length] )
-    * not( expression )
-    * string-length( [string] )
-    * contains( string, string )
-    * sum( node-set )
-    * concat( string1 , string2 [, stringn]* )
+    * position() float64
+    * last() float64
+    * count( node-set ) float64
+    * name() string
+    * starts-with( string, string ) boolean
+    * ends-with( string, string ) boolean
+    * normalize-space( string ) string
+    * substring( string , start : int [, length : int] ) string
+    * not( expression ) boolean
+    * string-length( [string] ) float64
+    * contains( string, string ) boolean
+    * sum( node-set ) float64
+    * concat( string1 , string2 [, stringn]* ) string
 
-- `a or b` : Boolean or.
+- `a or b` : Boolean `or` operation.
 
-- `a and b` : Boolean and.
+- `a and b` : Boolean `and` operation.

@@ -717,6 +717,65 @@ func (b *booleanQuery) Clone() query {
 	return &booleanQuery{IsOr: b.IsOr, Left: b.Left.Clone(), Right: b.Right.Clone()}
 }
 
+type unionQuery struct {
+	Left, Right query
+	iterator    func() NodeNavigator
+}
+
+func (u *unionQuery) Select(t iterator) NodeNavigator {
+	if u.iterator == nil {
+		var list []NodeNavigator
+		var i int
+		root := t.Current().Copy()
+		for {
+			node := u.Left.Select(t)
+			if node == nil {
+				break
+			}
+			node = node.Copy()
+			list = append(list, node)
+		}
+		t.Current().MoveTo(root)
+		for {
+			node := u.Right.Select(t)
+			if node == nil {
+				break
+			}
+			node = node.Copy()
+			var exists bool
+			for _, x := range list {
+				if reflect.DeepEqual(x, node) {
+					exists = true
+					break
+				}
+			}
+			if !exists {
+				list = append(list, node)
+			}
+		}
+		u.iterator = func() NodeNavigator {
+			if i >= len(list) {
+				return nil
+			}
+			node := list[i]
+			i++
+			return node
+		}
+	}
+	return u.iterator()
+}
+
+func (u *unionQuery) Evaluate(t iterator) interface{} {
+	u.iterator = nil
+	u.Left.Evaluate(t)
+	u.Right.Evaluate(t)
+	return u
+}
+
+func (u *unionQuery) Clone() query {
+	return &unionQuery{Left: u.Left.Clone(), Right: u.Right.Clone()}
+}
+
 func getNodePosition(q query) int {
 	type Position interface {
 		position() int

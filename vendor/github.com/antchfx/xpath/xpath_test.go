@@ -185,15 +185,23 @@ func TestOr_And(t *testing.T) {
 func TestFunction(t *testing.T) {
 	testXPath2(t, html, "//*[name()='a']", 3)
 	testXPath(t, html, "//*[starts-with(name(),'h1')]", "h1")
+	testXPath(t, html, "//*[ends-with(name(),'itle')]", "title") // Head title
 	testXPath2(t, html, "//*[contains(@href,'a')]", 2)
 	testXPath2(t, html, "//*[starts-with(@href,'/a')]", 2) // a links: `/account`,`/about`
+	testXPath2(t, html, "//*[ends-with(@href,'t')]", 2)    // a links: `/account`,`/about`
 	testXPath3(t, html, "//h1[normalize-space(text())='This is a H1']", selectNode(html, "//h1"))
 	testXPath3(t, html, "//title[substring(.,0)='Hello']", selectNode(html, "//title"))
 	testXPath3(t, html, "//title[substring(text(),0,4)='Hell']", selectNode(html, "//title"))
+	testXPath3(t, html, "//title[substring(self::*,0,4)='Hell']", selectNode(html, "//title"))
+	testXPath2(t, html, "//title[substring(child::*,0)]", 0) // Here substring return boolen (false), should it?
+	testXPath2(t, html, "//title[substring(child::*,0) = '']", 1)
 	testXPath3(t, html, "//li[not(a)]", selectNode(html, "//ul/li[4]"))
 	testXPath2(t, html, "//li/a[not(@id='1')]", 2) //  //li/a[@id!=1]
 	testXPath2(t, html, "//h1[string-length(normalize-space(' abc ')) = 3]", 1)
 	testXPath2(t, html, "//h1[string-length(normalize-space(self::text())) = 12]", 1)
+	testXPath2(t, html, "//title[string-length(normalize-space(child::*)) = 0]", 1)
+	testXPath2(t, html, "//title[string-length(self::text()) = 5]", 1) // Hello = 5
+	testXPath2(t, html, "//title[string-length(child::*) = 5]", 0)
 	testXPath2(t, html, "//ul[count(li)=4]", 1)
 	if MustCompile("sum(1+2)").Evaluate(createNavigator(html)).(float64) != 3 { // 1+2+3
 		t.Fatal("sum(1+2) != 3")
@@ -208,6 +216,35 @@ func TestFunction(t *testing.T) {
 	if MustCompile(`concat(" ",//a[@id='1']/@href," ")`).Evaluate(createNavigator(html)).(string) != " / " {
 		t.Fatal("concat()")
 	}
+}
+
+func TestPanic(t *testing.T) {
+	// starts-with
+	assertPanic(t, func() { testXPath(t, html, "//*[starts-with(0, 0)]", "") })
+	assertPanic(t, func() { testXPath(t, html, "//*[starts-with(name(), 0)]", "") })
+	//ends-with
+	assertPanic(t, func() { testXPath(t, html, "//*[ends-with(0, 0)]", "") })
+	assertPanic(t, func() { testXPath(t, html, "//*[ends-with(name(), 0)]", "") })
+	// contains
+	assertPanic(t, func() { testXPath2(t, html, "//*[contains(0, 0)]", 0) })
+	assertPanic(t, func() { testXPath2(t, html, "//*[contains(@href, 0)]", 0) })
+	// sum
+	assertPanic(t, func() { testXPath3(t, html, "//title[sum('Hello') = 0]", nil) })
+	// substring
+	assertPanic(t, func() { testXPath3(t, html, "//title[substring(.,'')=0]", nil) })
+	assertPanic(t, func() { testXPath3(t, html, "//title[substring(.,4,'')=0]", nil) })
+	assertPanic(t, func() { testXPath3(t, html, "//title[substring(.,4,4)=0]", nil) })
+	//assertPanic(t, func() { testXPath2(t, html, "//title[substring(child::*,0) = '']", 0) }) // Here substring return boolen (false), should it?
+
+}
+
+func assertPanic(t *testing.T, f func()) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+	f()
 }
 
 func TestEvaluate(t *testing.T) {
