@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/360EntSecGroup-Skylar/excelize"
+  packages = ["."]
+  revision = "eb62256d165607c6877ce88efbba10c119137b3d"
+  version = "1.3"
+
+[[projects]]
   name = "github.com/BurntSushi/toml"
   packages = ["."]
   revision = "b26d9c308763d68093482582cea63d69be07a0f0"
@@ -222,6 +228,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6bccc307af24e2d6b22d86d6629b1d4e89a2db9101acda5cc6842ea7b24c6a12"
+  inputs-digest = "cb45b32fcd205aae39522ff188f6ce4b45fc9373e426bc88ea69c4bc5239e583"
   solver-name = "gps-cdcl"
   solver-version = 1
