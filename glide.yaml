@@ -34,3 +34,5 @@ import:
   - bson
 - package: github.com/francoispqt/onelog
   version: ^0.11.1
+- package: github.com/francoispqt/gojay
+  version: ^0.10.8

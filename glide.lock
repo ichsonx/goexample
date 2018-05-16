@@ -1,5 +1,5 @@
-hash: a68f85a7919deb393ce6ec09806fe0ba23e223c8cdcfd2b00d11bf8a4214f3bf
-updated: 2018-05-16T02:08:23.24531178-04:00
+hash: 82dcaf6a41a040aaa7572571a4c3da908fdd4a7e955fe4201ad09f705c024464
+updated: 2018-05-16T02:54:27.123007479-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -23,6 +23,8 @@ imports:
   version: b26d9c308763d68093482582cea63d69be07a0f0
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+- name: github.com/francoispqt/gojay
+  version: 378ef0d1529c71e8c57f99691830b18824ad487f
 - name: github.com/francoispqt/onelog
   version: dd458d518d6947b8cb861a6281e73cad9d67bdfa
 - name: github.com/jordan-wright/email
