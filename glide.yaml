@@ -1,0 +1,36 @@
+package: goexample
+import:
+- package: github.com/360EntSecGroup-Skylar/excelize
+  version: ^1.3.0
+- package: github.com/BurntSushi/toml
+  version: ^0.3.0
+- package: github.com/PuerkitoBio/goquery
+  version: ^1.4.0
+- package: github.com/admpub/mail
+- package: github.com/antchfx/htmlquery
+- package: github.com/antchfx/xquery
+  subpackages:
+  - html
+- package: github.com/axgle/mahonia
+- package: github.com/benbjohnson/phantomjs
+- package: github.com/dgrijalva/jwt-go
+  version: ^3.2.0
+- package: github.com/jordan-wright/email
+  version: ^3.0.0
+- package: github.com/labstack/echo
+  version: ^3.3.5
+  subpackages:
+  - middleware
+- package: github.com/sirupsen/logrus
+  version: ^1.0.5
+- package: go.uber.org/zap
+  version: ^1.8.0
+  subpackages:
+  - zapcore
+- package: gopkg.in/gomail.v2
+  version: ^2.0.0
+- package: gopkg.in/mgo.v2
+  subpackages:
+  - bson
+- package: github.com/francoispqt/onelog
+  version: ^0.11.1
