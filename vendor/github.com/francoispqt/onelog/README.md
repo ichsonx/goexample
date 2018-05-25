@@ -8,7 +8,7 @@
 
 # Onelog
 Onelog is a dead simple but very efficient JSON logger. 
-It is the fastest JSON logger out there in all scenario. Also, it is one of the logger with the lowest allocation.
+It is one of the fastest JSON logger out there. Also, it is one of the logger with the lowest allocation.
 
 It gives more control over log levels enabled by using bitwise operation for setting levels on a logger.
 
@@ -133,7 +133,7 @@ logger.DebugWithFields("i'm not sure what's going on", func(e onelog.Entry) {
     e.Int64("int64", 12345)
     e.Float("float64", 0.15)
     e.Bool("bool", true)
-    e.Error("err", errors.New("someError"))
+    e.Err("err", errors.New("someError"))
     e.ObjectFunc("user", func(e Entry) {
         e.String("name", "somename")
     })
@@ -172,8 +172,8 @@ logger.InfoWith("foo bar").
     ObjectFunc("testObj", func(e Entry) {
         e.Int("testInt", 100)
     }).
-    Object("testObj2", testObj). // implementation of gojay.MarshalerObject
-    Array("testArr", testArr). // implementation of gojay.MarshalerArray
+    Object("testObj2", testObj). // implementation of gojay.MarshalerJSONObject
+    Array("testArr", testArr). // implementation of gojay.MarshalerJSONArray
     Err("testErr", errors.New("my printer is on fire !")).
     Write() // don't forget to call this method! 
 ```
@@ -222,9 +222,9 @@ Beware, these changes are global (affects all instances of the logger). Also, th
 
 # Benchmarks
 
-The benchmark data presented here is the one from Uber's benchmark suite where we added onelog. 
+For thorough benchmarks please see the results in the bench suite created by the author of zerolog here: https://github.com/rs/logbench 
 
-A pull request will be submitted to Zap to integrate onelog in the benchmarks.
+The benchmarks data presented below is the one from Uber's benchmark suite where we added onelog. 
 
 Benchmarks are here: https://github.com/francoispqt/zap/tree/onelog-bench/benchmarks
 
