@@ -1,5 +1,5 @@
-hash: e98b6ca20fb14bd231d4beb41446aa8567cf060f7fec94f9f3f08b929060d8dd
-updated: 2018-05-24T21:49:01.235089409-04:00
+hash: 82d852f0e2e027fec81297c5f93f008293d8f4a2a7e7d4a19a97fa65abc89e60
+updated: 2018-06-26T23:00:24.588551711-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -27,6 +27,8 @@ imports:
   version: 378ef0d1529c71e8c57f99691830b18824ad487f
 - name: github.com/francoispqt/onelog
   version: fa3fac3578ac0fd8ee953abade9f96fc0956cb1a
+- name: github.com/jmoiron/sqlx
+  version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
 - name: github.com/jordan-wright/email
   version: 94ae17dedda217a49e3b47d68f1b54b3c946e16b
 - name: github.com/labstack/echo
@@ -45,7 +47,7 @@ imports:
 - name: github.com/mattn/go-isatty
   version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
 - name: github.com/PuerkitoBio/goquery
-  version: a86ea073017a6beddef78c8659e7224e8ca634b0
+  version: dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2
 - name: github.com/sirupsen/logrus
   version: c155da19408a8799da419ed3eeb0cb5db0ad5dbc
 - name: github.com/urfave/cli

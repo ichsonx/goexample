@@ -38,3 +38,4 @@ import:
   version: ^0.10.8
 - package: github.com/urfave/cli
   version: ^1.20.0
+- package: github.com/jmoiron/sqlx
