@@ -28,10 +28,10 @@ func main() {
 		header2 := "insert into ORG_CARBON_EMISSIONS_INFO "
 		header3 := "(ID, ACCOUNT_ID1, ACCOUNT_ID2, ACCOUNT_NAME, ALLOWANCE_TYPE, EMISSION_DATA, TERMYEARS, TERMYEARE, CREATE_USER, CREATE_TIME, UPDATE_USER, UPDATE_TIME) values ("
 		header4 := header2 + header3
-		beginnum := 2800
+		beginnum := 2737
 		termyear1 := "to_date('01-01-2017', 'dd-mm-yyyy')"	//履约开始年份，一般2018年进行2017年的履约
 		termyear2 := "to_date('31-12-2017', 'dd-mm-yyyy')"	//履约结束年份
-		creattime := "to_timestamp('21-05-2018 19:20:14.000000', 'dd-mm-yyyy hh24:mi:ss.ff')"	//这个操作创建和更新时间
+		creattime := "to_timestamp('22-05-2018 19:20:14.000000', 'dd-mm-yyyy hh24:mi:ss.ff')"	//这个操作创建和更新时间
 		tail := fmt.Sprintf("commit;\nprompt %d records loaded\nset feedback on\nset define on\nprompt Done.", len(xlsxarr))
 
 		file, err := os.OpenFile(sqlpath, os.O_CREATE|os.O_WRONLY, 0666)
@@ -40,6 +40,7 @@ func main() {
 		}
 		_, _ = io.WriteString(file, header)
 		for _, row := range xlsxarr{
+			fmt.Println(row[2])
 			sqlcontent += fmt.Sprintf("%s %d, '%s', '%s', '%s', '11', %s, %s, %s, 'sys', %s, 'sys', %s);\n", header4, beginnum, row[0], row[0], row[1], row[2], termyear1, termyear2, creattime, creattime)
 			beginnum++
 		}
