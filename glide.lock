@@ -1,5 +1,5 @@
-hash: 82d852f0e2e027fec81297c5f93f008293d8f4a2a7e7d4a19a97fa65abc89e60
-updated: 2018-06-26T23:00:24.588551711-04:00
+hash: 56cbf0608f0deff68a81b8970a3f835f1d564bc96abd627c48753fc49cffbf20
+updated: 2018-06-26T23:25:24.978388388-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -27,6 +27,8 @@ imports:
   version: 378ef0d1529c71e8c57f99691830b18824ad487f
 - name: github.com/francoispqt/onelog
   version: fa3fac3578ac0fd8ee953abade9f96fc0956cb1a
+- name: github.com/go-sql-driver/mysql
+  version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/jmoiron/sqlx
   version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
 - name: github.com/jordan-wright/email
