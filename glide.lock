@@ -1,5 +1,5 @@
-hash: 56cbf0608f0deff68a81b8970a3f835f1d564bc96abd627c48753fc49cffbf20
-updated: 2018-06-26T23:25:24.978388388-04:00
+hash: 77beeb6069794c1d472002124e4877fceee72a06bc298b7938aeef740ef24216
+updated: 2018-07-08T23:52:43.317499013-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -21,6 +21,8 @@ imports:
   version: 1b81734f7877b51cadd82ee32663ae88f630469c
 - name: github.com/BurntSushi/toml
   version: b26d9c308763d68093482582cea63d69be07a0f0
+- name: github.com/chromedp/chromedp
+  version: db9a8731419af3b4aefc0216969a9e0f5d2525db
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/francoispqt/gojay
@@ -31,6 +33,8 @@ imports:
   version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/jmoiron/sqlx
   version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
+  subpackages:
+  - reflectx
 - name: github.com/jordan-wright/email
   version: 94ae17dedda217a49e3b47d68f1b54b3c946e16b
 - name: github.com/labstack/echo
@@ -107,6 +111,10 @@ imports:
   - language
   - runes
   - transform
+- name: google.golang.org/appengine
+  version: b1f26356af11148e710935ed1ac8a7f5702c7612
+  subpackages:
+  - cloudsql
 - name: gopkg.in/alexcesaro/quotedprintable.v3
   version: 2caba252f4dc53eaf6b553000885530023f54623
 - name: gopkg.in/gomail.v2
