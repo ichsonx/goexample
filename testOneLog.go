@@ -10,9 +10,9 @@ import (
 var logger *onelog.Logger
 
 func main() {
-	//helloLevels()
+	helloLevels()
 	//helloHook()
-	helloExtraFields()
+	//helloExtraFields()
 }
 
 func helloBasic()  {
@@ -33,16 +33,19 @@ func helloBasic()  {
     onelog.WARN
     onelog.ERROR
     onelog.FATAL
+	这里是按照你所设置的等级来打印信息的。即使你包括了最低debug等级，但没包含warn，也不会输出warn信息
 
 */
 func helloLevels()  {
 	logger = onelog.New(
 		os.Stdout,
-		onelog.INFO|onelog.WARN|onelog.ERROR|onelog.FATAL,
+		onelog.INFO|onelog.WARN|onelog.FATAL,
 	)
 	//日志级别低于声明的界别，则会抛弃
 	logger.Debug("helloLevels")
 	logger.Fatal("helloLevels")
+	logger.Warn("helloLevels")
+	logger.Error("helloLevels")
 }
 
 /*
