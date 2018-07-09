@@ -1,16 +1,12 @@
-hash: 77beeb6069794c1d472002124e4877fceee72a06bc298b7938aeef740ef24216
-updated: 2018-07-08T23:52:43.317499013-04:00
+hash: 56cbf0608f0deff68a81b8970a3f835f1d564bc96abd627c48753fc49cffbf20
+updated: 2018-07-09T02:25:48.640317005-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
 - name: github.com/admpub/mail
   version: d63147b0317bf02b0092e9371d09abfcbc3b2b8c
-- name: github.com/andybalholm/cascadia
-  version: 901648c87902174f774fac311d7f176f8647bdaa
 - name: github.com/antchfx/htmlquery
   version: d0044020e702a9e547420f403bddf4ee1673ac3f
-- name: github.com/antchfx/xpath
-  version: 7148e5d6bb845772731e3979df279a1b0e8e90ac
 - name: github.com/antchfx/xquery
   version: ad5b8c7a47b007a1cdaf6616ece1f71e94c189a6
   subpackages:
@@ -21,8 +17,6 @@ imports:
   version: 1b81734f7877b51cadd82ee32663ae88f630469c
 - name: github.com/BurntSushi/toml
   version: b26d9c308763d68093482582cea63d69be07a0f0
-- name: github.com/chromedp/chromedp
-  version: db9a8731419af3b4aefc0216969a9e0f5d2525db
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/francoispqt/gojay
@@ -33,97 +27,26 @@ imports:
   version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/jmoiron/sqlx
   version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
-  subpackages:
-  - reflectx
 - name: github.com/jordan-wright/email
   version: 94ae17dedda217a49e3b47d68f1b54b3c946e16b
 - name: github.com/labstack/echo
   version: 6d227dfea4d2e52cb76856120b3c17f758139b4e
   subpackages:
   - middleware
-- name: github.com/labstack/gommon
-  version: 0a22a0df01a7c84944c607e8a6e91cfe421ea7ed
-  subpackages:
-  - bytes
-  - color
-  - log
-  - random
-- name: github.com/mattn/go-colorable
-  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
-- name: github.com/mattn/go-isatty
-  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
 - name: github.com/PuerkitoBio/goquery
   version: dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2
 - name: github.com/sirupsen/logrus
   version: c155da19408a8799da419ed3eeb0cb5db0ad5dbc
 - name: github.com/urfave/cli
   version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
-- name: github.com/valyala/bytebufferpool
-  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
-- name: github.com/valyala/fasttemplate
-  version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
-- name: go.uber.org/atomic
-  version: 1ea20fb1cbb1cc08cbd0d913a96dead89aa18289
-- name: go.uber.org/multierr
-  version: 3c4937480c32f4c13a875a1829af76c98ca3d40a
 - name: go.uber.org/zap
   version: eeedf312bc6c57391d84767a4cd413f02a917974
   subpackages:
-  - buffer
-  - internal/bufferpool
-  - internal/color
-  - internal/exit
   - zapcore
-- name: golang.org/x/crypto
-  version: 1a580b3eff7814fc9b40602fd35256c63b50f491
-  subpackages:
-  - acme
-  - acme/autocert
-  - ssh/terminal
-- name: golang.org/x/net
-  version: 2491c5de3490fced2f6cff376127c667efeed857
-  subpackages:
-  - html
-  - html/atom
-  - html/charset
-- name: golang.org/x/sys
-  version: 7c87d13f8e835d2fb3a70a2912c811ed0c1d241b
-  subpackages:
-  - unix
-  - windows
-- name: golang.org/x/text
-  version: 5c1cf69b5978e5a34c5f9ba09a83e56acc4b7877
-  subpackages:
-  - encoding
-  - encoding/charmap
-  - encoding/htmlindex
-  - encoding/internal
-  - encoding/internal/identifier
-  - encoding/japanese
-  - encoding/korean
-  - encoding/simplifiedchinese
-  - encoding/traditionalchinese
-  - encoding/unicode
-  - internal/language
-  - internal/language/compact
-  - internal/tag
-  - internal/utf8internal
-  - language
-  - runes
-  - transform
-- name: google.golang.org/appengine
-  version: b1f26356af11148e710935ed1ac8a7f5702c7612
-  subpackages:
-  - cloudsql
-- name: gopkg.in/alexcesaro/quotedprintable.v3
-  version: 2caba252f4dc53eaf6b553000885530023f54623
 - name: gopkg.in/gomail.v2
   version: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
 - name: gopkg.in/mgo.v2
   version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
   subpackages:
   - bson
-  - internal/json
-  - internal/sasl
-  - internal/scram
 testImports: []

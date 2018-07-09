@@ -41,4 +41,3 @@ import:
 - package: github.com/jmoiron/sqlx
 - package: github.com/go-sql-driver/mysql
   version: ^1.4.0
-- package: github.com/chromedp/chromedp
