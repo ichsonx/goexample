@@ -1,5 +1,5 @@
-hash: 3d12b9b5f90dec529efe645601e243c63dcd99c85d4ee45d01360aea8a6244f6
-updated: 2018-07-18T21:13:55.356574649-04:00
+hash: 146af6c4f3e75bb97f5e35c7a91ee5606f7482003749b5e3369e12526bc7bf07
+updated: 2018-07-18T21:44:43.149711166-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -29,18 +29,24 @@ imports:
   version: 34591780d9d429c470ccf81a2760c40245fc823a
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+- name: github.com/disintegration/imaging
+  version: bbcee2f5c9d5e94ca42c8b50ec847fec64a6c134
 - name: github.com/francoispqt/gojay
   version: 378ef0d1529c71e8c57f99691830b18824ad487f
 - name: github.com/francoispqt/onelog
   version: b50beb1767ddda57d7e0e2f2cf8a8f9b65e91ccf
 - name: github.com/go-sql-driver/mysql
   version: d523deb1b23d913de5bdada721a6071e71283618
+- name: github.com/gorilla/websocket
+  version: ea4d1f681babbce9545c9c5f3d5194a789c89f5b
 - name: github.com/jmoiron/sqlx
   version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
   subpackages:
   - reflectx
 - name: github.com/jordan-wright/email
   version: 94ae17dedda217a49e3b47d68f1b54b3c946e16b
+- name: github.com/knq/sysutil
+  version: 0218e141a794643e8c0fa283b9cd076fc0df662d
 - name: github.com/labstack/echo
   version: 6d227dfea4d2e52cb76856120b3c17f758139b4e
   subpackages:
@@ -52,6 +58,11 @@ imports:
   - color
   - log
   - random
+- name: github.com/mailru/easyjson
+  version: efc7eb8984d6655c26b5c9d2e65c024e5767c37c
+  subpackages:
+  - jlexer
+  - jwriter
 - name: github.com/mattn/go-colorable
   version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
 - name: github.com/mattn/go-isatty
