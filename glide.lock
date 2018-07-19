@@ -1,5 +1,5 @@
-hash: 802c04338a96b8956cdd0c8c71c030b8741ad84ca6f3f69643a3c525cdd1621e
-updated: 2018-07-18T21:01:46.284363392-04:00
+hash: 3d12b9b5f90dec529efe645601e243c63dcd99c85d4ee45d01360aea8a6244f6
+updated: 2018-07-18T21:13:55.356574649-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -21,6 +21,10 @@ imports:
   version: 1b81734f7877b51cadd82ee32663ae88f630469c
 - name: github.com/BurntSushi/toml
   version: b26d9c308763d68093482582cea63d69be07a0f0
+- name: github.com/chromedp/cdproto
+  version: 2df4c50ff9773a4e4134e27662a2d59416651748
+  subpackages:
+  - cdp
 - name: github.com/chromedp/chromedp
   version: 34591780d9d429c470ccf81a2760c40245fc823a
 - name: github.com/dgrijalva/jwt-go
