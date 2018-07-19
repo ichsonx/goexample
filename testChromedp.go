@@ -106,6 +106,7 @@ func getHtml(url string, res *string) chromedp.Tasks  {
 	return chromedp.Tasks{
 		chromedp.Navigate("www.google.com"),
 		chromedp.OuterHTML("html", res),
+		chromedp.WaitReady("body", chromedp.ByID),
 	}
 }
 
