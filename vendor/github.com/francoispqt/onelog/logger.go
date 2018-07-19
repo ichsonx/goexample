@@ -12,7 +12,7 @@ var logClose = []byte("}\n")
 var msgKey = "message"
 
 // LevelText personalises the text for a specific level.
-func LevelText(level int, txt string) {
+func LevelText(level uint8, txt string) {
 	Levels[level] = txt
 	genLevelSlices()
 }
@@ -87,7 +87,7 @@ func (l *Logger) Info(msg string) {
 	if INFO&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{Level: INFO}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -99,13 +99,14 @@ func (l *Logger) Info(msg string) {
 	enc.Release()
 }
 
-// InfoWith return an entry with INFO level.
-func (l *Logger) InfoWith(msg string) entry {
+// InfoWith return an ChainEntry with INFO level.
+func (l *Logger) InfoWith(msg string) ChainEntry {
 	// first find writer for level
 	// if none, stop
-	e := entry{
+	e := ChainEntry{
 		Entry: Entry{
-			l: l,
+			l:     l,
+			Level: INFO,
 		},
 	}
 	e.disabled = INFO&e.l.levels == 0
@@ -129,7 +130,7 @@ func (l *Logger) InfoWithFields(msg string, fields func(Entry)) {
 	if INFO&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{Level: INFO}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -149,7 +150,7 @@ func (l *Logger) Debug(msg string) {
 	if DEBUG&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{Level: DEBUG}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -161,11 +162,11 @@ func (l *Logger) Debug(msg string) {
 	enc.Release()
 }
 
-// DebugWith return entry with DEBUG level.
-func (l *Logger) DebugWith(msg string) entry {
+// DebugWith return ChainEntry with DEBUG level.
+func (l *Logger) DebugWith(msg string) ChainEntry {
 	// first find writer for level
 	// if none, stop
-	e := entry{
+	e := ChainEntry{
 		Entry: Entry{
 			l: l,
 		},
@@ -191,7 +192,7 @@ func (l *Logger) DebugWithFields(msg string, fields func(Entry)) {
 	if DEBUG&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{Level: DEBUG}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -211,7 +212,7 @@ func (l *Logger) Warn(msg string) {
 	if WARN&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{Level: WARN}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -223,13 +224,14 @@ func (l *Logger) Warn(msg string) {
 	enc.Release()
 }
 
-// WarnWith returns entry with WARN level
-func (l *Logger) WarnWith(msg string) entry {
+// WarnWith returns a ChainEntry with WARN level
+func (l *Logger) WarnWith(msg string) ChainEntry {
 	// first find writer for level
 	// if none, stop
-	e := entry{
+	e := ChainEntry{
 		Entry: Entry{
-			l: l,
+			l:     l,
+			Level: WARN,
 		},
 	}
 	e.disabled = WARN&e.l.levels == 0
@@ -251,7 +253,9 @@ func (l *Logger) WarnWithFields(msg string, fields func(Entry)) {
 	if WARN&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{
+		Level: WARN,
+	}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -269,7 +273,9 @@ func (l *Logger) Error(msg string) {
 	if ERROR&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{
+		Level: ERROR,
+	}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -281,13 +287,14 @@ func (l *Logger) Error(msg string) {
 	enc.Release()
 }
 
-// ErrorWith returns entry with ERROR level.
-func (l *Logger) ErrorWith(msg string) entry {
+// ErrorWith returns a ChainEntry with ERROR level.
+func (l *Logger) ErrorWith(msg string) ChainEntry {
 	// first find writer for level
 	// if none, stop
-	e := entry{
+	e := ChainEntry{
 		Entry: Entry{
-			l: l,
+			l:     l,
+			Level: ERROR,
 		},
 	}
 	e.disabled = ERROR&e.l.levels == 0
@@ -309,7 +316,9 @@ func (l *Logger) ErrorWithFields(msg string, fields func(Entry)) {
 	if ERROR&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{
+		Level: ERROR,
+	}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -327,7 +336,9 @@ func (l *Logger) Fatal(msg string) {
 	if FATAL&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{
+		Level: FATAL,
+	}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -339,11 +350,11 @@ func (l *Logger) Fatal(msg string) {
 	enc.Release()
 }
 
-// FatalWith returns entry with FATAL level.
-func (l *Logger) FatalWith(msg string) entry {
+// FatalWith returns a ChainEntry with FATAL level.
+func (l *Logger) FatalWith(msg string) ChainEntry {
 	// first find writer for level
 	// if none, stop
-	e := entry{
+	e := ChainEntry{
 		Entry: Entry{
 			l: l,
 		},
@@ -367,7 +378,9 @@ func (l *Logger) FatalWithFields(msg string, fields func(Entry)) {
 	if FATAL&l.levels == 0 {
 		return
 	}
-	e := Entry{}
+	e := Entry{
+		Level: FATAL,
+	}
 	// then call format on formatter
 	enc := gojay.BorrowEncoder(l.w)
 	e.enc = enc
@@ -380,7 +393,7 @@ func (l *Logger) FatalWithFields(msg string, fields func(Entry)) {
 	enc.Release()
 }
 
-func (l *Logger) beginEntry(level int, msg string, enc *Encoder) {
+func (l *Logger) beginEntry(level uint8, msg string, enc *Encoder) {
 	enc.AppendBytes(levelsJSON[level])
 	enc.AppendString(msg)
 	if l.ctx != nil {
