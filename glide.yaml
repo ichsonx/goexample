@@ -55,3 +55,7 @@ import:
   subpackages:
   - jlexer
   - jwriter
+- package: golang.org/x/image
+  subpackages:
+  - bmp
+  - tiff

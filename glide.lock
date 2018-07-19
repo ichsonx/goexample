@@ -1,5 +1,5 @@
-hash: 146af6c4f3e75bb97f5e35c7a91ee5606f7482003749b5e3369e12526bc7bf07
-updated: 2018-07-18T21:44:43.149711166-04:00
+hash: 4eaa767dd9c2e2a1f5c9ba943512c85783d478231fcac699ea8bdd8cf870f88f
+updated: 2018-07-18T21:49:14.653648947-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -95,6 +95,11 @@ imports:
   - acme
   - acme/autocert
   - ssh/terminal
+- name: golang.org/x/image
+  version: c73c2afc3b812cdd6385de5a50616511c4a3d458
+  subpackages:
+  - bmp
+  - tiff
 - name: golang.org/x/net
   version: 2491c5de3490fced2f6cff376127c667efeed857
   subpackages:
