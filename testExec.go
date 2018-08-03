@@ -1,10 +1,4 @@
 package main
-
-import (
-	"os/exec"
-	"fmt"
-)
-
 /*
  golang exec的基本使用，就是调用本地os的命令或者可执行文件的example
 */
