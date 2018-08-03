@@ -2,57 +2,42 @@ package main
 
 import (
 	"os/exec"
-			"io/ioutil"
-	"os"
-	"syscall"
 	"fmt"
 )
 
+/*
+ golang exec的基本使用，就是调用本地os的命令或者可执行文件的example
+*/
+import (
+	"fmt"
+	"log"
+	"os/exec"
+)
+
 func main() {
-	_, out, err := simple()
-
-	if err != nil {
-		fmt.Printf("error \n")
-	}
-
-	fmt.Println(out)
+	simpleOutput()
 }
 
-//func simple()  {
-//	//cmd := exec.Command("touch", "aaaaa")
-//	cmd := exec.Command("ls", "./")
-//	outpip, err := cmd.StdoutPipe()
-//
-//	err = cmd.Run()
-//	if err != nil {
-//		fmt.Printf("error: %v \n" , err)
-//		return
-//	}
-//	out, err := ioutil.ReadAll(outpip)
-//	fmt.Println(out)
-//	//fmt.Println(cmd.ProcessState.Sys().(syscall.WaitStatus).ExitStatus())
-//	fmt.Println("command finish...")
-//}
-
-func simple() (int, string, error) {
-	cmd := exec.Command(os.Getenv("SHELL"), "ls /")
-
-	cmd.SysProcAttr = &syscall.SysProcAttr{}
-
-	outpip, err := cmd.StdoutPipe()
+/*
+ command CombinedOutput 方法会运行其中的命令，并且获取命令执行结果的返回，这个返回是将“执行成功的结果”和“err”结合在一起一并返回。
+如果执行成功，则返回的是“执行成功的结果”，如果失败，则返回的是“err”
+*/
+func simpleCombinedOutput() {
+	cmd := exec.Command("ls", "-la")
+	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
-		return 0, "", err
+		log.Fatal(err)
 	}
+	fmt.Printf("%s\n", stdoutStderr)
+}
 
-	err = cmd.Start()
+/*
+ command Output 方法会运行其中的命令，并且获取命令执行结果的返回，包括err
+*/
+func simpleOutput() {
+	out, err := exec.Command("ls", "-la").Output()
 	if err != nil {
-		return 0, "", err
+		log.Fatal(err)
 	}
-
-	out, err := ioutil.ReadAll(outpip)
-	if err != nil {
-		return 0, "", err
-	}
-
-	return cmd.Process.Pid, string(out), nil
+	fmt.Printf("The Output is %s\n", out)
 }
