@@ -1,5 +1,5 @@
-hash: 4eaa767dd9c2e2a1f5c9ba943512c85783d478231fcac699ea8bdd8cf870f88f
-updated: 2018-07-18T21:49:14.653648947-04:00
+hash: dedf7baa287c628f13317ff372b459a5d1621fce23829aed96a07d3a4e0ff0d9
+updated: 2018-08-03T04:47:30.660532373-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -24,9 +24,50 @@ imports:
 - name: github.com/chromedp/cdproto
   version: 2df4c50ff9773a4e4134e27662a2d59416651748
   subpackages:
+  - accessibility
+  - animation
+  - applicationcache
+  - audits
+  - browser
+  - cachestorage
   - cdp
+  - css
+  - database
+  - debugger
+  - deviceorientation
+  - dom
+  - domdebugger
+  - domsnapshot
+  - domstorage
+  - emulation
+  - headlessexperimental
+  - heapprofiler
+  - indexeddb
+  - input
+  - inspector
+  - io
+  - layertree
+  - log
+  - memory
+  - network
+  - overlay
+  - page
+  - performance
+  - profiler
+  - runtime
+  - security
+  - serviceworker
+  - storage
+  - systeminfo
+  - target
+  - tethering
+  - tracing
 - name: github.com/chromedp/chromedp
   version: 34591780d9d429c470ccf81a2760c40245fc823a
+  subpackages:
+  - client
+  - kb
+  - runner
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/disintegration/imaging
@@ -61,6 +102,7 @@ imports:
 - name: github.com/mailru/easyjson
   version: efc7eb8984d6655c26b5c9d2e65c024e5767c37c
   subpackages:
+  - buffer
   - jlexer
   - jwriter
 - name: github.com/mattn/go-colorable
@@ -70,7 +112,9 @@ imports:
 - name: github.com/PuerkitoBio/goquery
   version: dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2
 - name: github.com/sirupsen/logrus
-  version: c155da19408a8799da419ed3eeb0cb5db0ad5dbc
+  version: 3e01752db0189b9157070a0e1668a620f9a85da2
+- name: github.com/tealeg/xlsx
+  version: 8be35264fa75a1bbe954ce51eba04f273e2c59e5
 - name: github.com/urfave/cli
   version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
 - name: github.com/valyala/bytebufferpool
@@ -82,7 +126,7 @@ imports:
 - name: go.uber.org/multierr
   version: 3c4937480c32f4c13a875a1829af76c98ca3d40a
 - name: go.uber.org/zap
-  version: eeedf312bc6c57391d84767a4cd413f02a917974
+  version: 4d45f9617f7d90f7a663ff21c7a4321dbe78098b
   subpackages:
   - buffer
   - internal/bufferpool
@@ -100,6 +144,7 @@ imports:
   subpackages:
   - bmp
   - tiff
+  - tiff/lzw
 - name: golang.org/x/net
   version: 2491c5de3490fced2f6cff376127c667efeed857
   subpackages:
