@@ -28,11 +28,11 @@ func main() {
 	filepath := "./config/yamltext.yml"
 	data, err := ioutil.ReadFile(filepath)
 	yml := config{}
+
 	err = yaml.Unmarshal([]byte(data), &yml)
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
-
 	fmt.Printf("%v\n", yml)
 	for _, developer := range yml.Developers{
 		fmt.Printf(" %s\n", developer.Languages[0])
@@ -43,5 +43,18 @@ func main() {
 		log.Fatalf("error: %v", err)
 	}
 	fmt.Printf("--- t dump:\n%s\n\n", string(d))
+
+	m := make(map[interface{}]interface{})
+	err = yaml.Unmarshal([]byte(data), &m)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
+	fmt.Printf("--- m:\n%v\n\n", m)
+
+	d, err = yaml.Marshal(&m)
+	if err != nil {
+		log.Fatalf("error: %v", err)
+	}
+	fmt.Printf("--- m dump:\n%s\n\n", string(d))
 
 }
