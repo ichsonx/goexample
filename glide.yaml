@@ -61,3 +61,5 @@ import:
   - tiff
 - package: github.com/tealeg/xlsx
   version: ^1.0.3
+- package: gopkg.in/yaml.v2
+  version: ^2.2.1

@@ -1,5 +1,5 @@
-hash: dedf7baa287c628f13317ff372b459a5d1621fce23829aed96a07d3a4e0ff0d9
-updated: 2018-08-03T04:47:30.660532373-04:00
+hash: bd3723f088790e7b100d397ecfe8b6ebe58408e6bd88df339adf14c7ca3ba39d
+updated: 2018-09-21T03:24:29.6245659-04:00
 imports:
 - name: github.com/360EntSecGroup-Skylar/excelize
   version: eb62256d165607c6877ce88efbba10c119137b3d
@@ -71,7 +71,7 @@ imports:
 - name: github.com/dgrijalva/jwt-go
   version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/disintegration/imaging
-  version: bbcee2f5c9d5e94ca42c8b50ec847fec64a6c134
+  version: 0bd5694c78c9c3d9a3cd06a706a8f3c59296a9ac
 - name: github.com/francoispqt/gojay
   version: 378ef0d1529c71e8c57f99691830b18824ad487f
 - name: github.com/francoispqt/onelog
@@ -79,7 +79,7 @@ imports:
 - name: github.com/go-sql-driver/mysql
   version: d523deb1b23d913de5bdada721a6071e71283618
 - name: github.com/gorilla/websocket
-  version: ea4d1f681babbce9545c9c5f3d5194a789c89f5b
+  version: 66b9c49e59c6c48f0ffce28c2d8b8a5678502c6d
 - name: github.com/jmoiron/sqlx
   version: 0dae4fefe7c0e190f7b5a78dac28a1c82cc8d849
   subpackages:
@@ -126,7 +126,7 @@ imports:
 - name: go.uber.org/multierr
   version: 3c4937480c32f4c13a875a1829af76c98ca3d40a
 - name: go.uber.org/zap
-  version: 4d45f9617f7d90f7a663ff21c7a4321dbe78098b
+  version: ff33455a0e382e8a81d14dd7c922020b6b5e7982
   subpackages:
   - buffer
   - internal/bufferpool
@@ -191,4 +191,6 @@ imports:
   - internal/json
   - internal/sasl
   - internal/scram
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports: []
