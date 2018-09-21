@@ -1,0 +1,29 @@
+#一个数组
+fruits:
+  - Apple
+  - Orange
+  - Strawberry
+  - Mango
+
+#一个map映射
+websites:
+  yaml: yaml.org
+  ruby: ruby-lang.org
+  python: python.org
+  perl: use.perl.org
+
+#一个数组，数组里每个元素都是一个对象（或者说一个map），里面的field会有不同
+developers:
+  -
+    name: Bob
+    age: 35
+    languages:
+      - ruby
+      - java
+  -
+    name: joker
+    weight: 150kg
+    languages:
+      - python
+      - golang
+      - c++
