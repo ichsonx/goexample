@@ -13,10 +13,6 @@ func (m *M)change2()  {
 	m.name = "aaa"
 }
 
-type shower interface {
-	showvalue()
-}
-
 func main() {
 	//==============================指针、值接受者方法的区别================================
 	//m := M{"sonx"}

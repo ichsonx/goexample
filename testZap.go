@@ -18,10 +18,10 @@ uber 的开源日志项目。
 */
 func main() {
 	//useSugaredLogger()
-	//uselogger()
+	uselogger()
 	//useLogToFile()
 	//useSimpleLogger()
-	useSimpleSugar()
+	//useSimpleSugar()
 }
 
 //自定义的config，输出到日志文件。需要修改zap的config，然后从config.buile一个logger出来。

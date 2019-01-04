@@ -6,15 +6,15 @@
 package main
 
 import (
-	"github.com/BurntSushi/toml"
 	"fmt"
+	"github.com/BurntSushi/toml"
 	"os"
 	"time"
 )
 
 func main() {
-	//ReadToml()
-	AnotherWayReadAndShow()
+	ReadToml()
+	//AnotherWayReadAndShow()
 }
 type constraint struct {
 	Branch	string
@@ -55,6 +55,9 @@ type clients struct {
 
 
 //read toml by struct way
+/*
+	使用结构类型来从toml文件读取数据
+*/
 func ReadToml()  {
 	var config tomlconfig
 	filepath := "./config/tomlconfig.toml"
@@ -81,6 +84,9 @@ func ReadToml()  {
 	fmt.Printf("Client hosts: %v\n", config.Clients.Hosts)
 }
 
+/*
+	使用 map 映射类型从toml读取数据
+*/
 func AnotherWayReadAndShow()  {
 	filepath := "./config/tomlconfig.toml"
 	data := make(map[string]interface{})

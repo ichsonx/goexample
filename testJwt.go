@@ -57,8 +57,8 @@ func main() {
 //获取token字符串
 func genToken() string  {
 	//用于测试token时间过期的，过期时间1秒，程序会在生成token后sleep3秒
-	//MyClaims.ExpiresAt = time.Now().Add(time.Second * 1).Unix()
-	MyClaims.ExpiresAt = time.Now().Add(time.Minute * 30).Unix()
+	MyClaims.ExpiresAt = time.Now().Add(time.Second * 1).Unix()
+	//MyClaims.ExpiresAt = time.Now().Add(time.Minute * 30).Unix()
 	MyClaims.Foo = "sonx"
 	//还有一种方法获得token：jwt.New(签名方法)，这种方法获得的signer(签名器)，最后还需要给signer赋予claims：signer.Claims = claims（已实例化的claims）
 	signer := jwt.NewWithClaims(jwt.SigningMethodHS256, MyClaims )
